@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <!-- Link to the external CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>User Registration Form</h1>
+
+    <!-- Registration Form -->
+    <form id="registrationForm" onsubmit="return submitForm()">
+        
+        <!-- Name Field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" placeholder="Enter your name">
+
+        <br><br>
+
+        <!-- Phone Field -->
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required pattern="^\d{10}$" title="Phone number must be 10 digits" placeholder="Enter your phone number">
+
+        <br><br>
+
+        <!-- Address Field -->
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" placeholder="Enter your address"></textarea>
+
+        <br><br>
+
+        <!-- Email Field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+        <br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // This function shows an alert with form data when the form is submitted
+        function submitForm() {
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            const email = document.getElementById("email").value;
+
+            // Show an alert with all the data entered by the user
+            alert(`User Registration Successful!\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nEmail: ${email}`);
+
+            // Prevent the form from actually submitting (since we only want the alert)
+            return false;
+        }
+    </script>
+
+</body>
+</html>
